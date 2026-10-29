@@ -1,6 +1,6 @@
 {
-  "name": "HYWTL 풍동실험 간이견적",
-  "short_name": "HYWTL 견적",
+  "name": "HYWTL 풍동실험 간이판정",
+  "short_name": "HYWTL 판정",
   "description": "현장 미팅용 풍동실험 대상동 간이 판정과 예비 견적 (사내 전용)",
   "lang": "ko",
   "start_url": "./index.html",

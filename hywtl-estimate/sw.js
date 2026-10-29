@@ -1,6 +1,6 @@
-// HYWTL 풍동실험 간이견적 — 오프라인 저장
+// HYWTL 풍동실험 간이판정 — 오프라인 저장
 // 수정 배포 시 VERSION 값을 올리면 각 기기가 다음 접속 때 새 버전을 받습니다.
-const VERSION = 'hywtl-estimate-1.7.2';
+const VERSION = 'hywtl-estimate-1.8.2';
 const CORE = ['./', './index.html', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 

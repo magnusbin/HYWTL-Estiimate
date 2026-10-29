@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>HYWTL 풍동실험 간이견적</title>
+<title>HYWTL 풍동실험 간이판정</title>
 <meta name="theme-color" content="#1d5f8a">
 <meta name="robots" content="noindex, nofollow">
 <link rel="manifest" href="./manifest.webmanifest">
@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="HYWTL 견적">
+<meta name="apple-mobile-web-app-title" content="HYWTL 판정">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -112,6 +112,13 @@ details[open].card summary::after{content:"－"}
 .cnt input{width:4em!important}
 .cnt input::placeholder{color:var(--muted);opacity:.75}
 .cnt input.mod{color:var(--accent);border-color:var(--accent)}
+.adv{border-top:1px dashed var(--line);padding-top:8px}
+.adv summary{cursor:pointer;font-size:13px;color:var(--muted);list-style:none;padding:4px 0}
+.adv summary::-webkit-details-marker{display:none}
+.adv summary::before{content:'▸ ';color:var(--accent)}
+.adv[open] summary::before{content:'▾ '}
+.adv-st{color:var(--accent);font-weight:600}
+.adv-in{display:grid;gap:10px;padding-top:8px}
 .seg.mini{display:inline-flex;gap:4px}
 .seg.mini button{flex:0 0 auto;min-width:0;padding:4px 10px;font-size:12px}
 .chk{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
@@ -144,12 +151,12 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
 <body>
 <div class="wrap">
   <header>
-    <h1>HYWTL 풍동실험 간이견적</h1>
-    <p>현장 미팅용 · 높이와 평면 정보만으로 대상동 간이 판정과 예비 견적을 냅니다</p>
+    <h1>HYWTL 풍동실험 간이판정</h1>
+    <p>현장 미팅용 · 높이와 호수·전용면적만으로 대상동을 간이 판정하고 예비 금액을 냅니다</p>
   </header>
 
   <div class="notice">
-    <div>KDS 41 12 00:2022 5.1.4 특별풍하중 · 형상비 <span class="val">H / √A ≥ 3.0</span>이면 주골조설계용, 여기에 (5) 외장재 파손 주의를 더해 외장재설계용 대상을 판정합니다 (영업팀 검토 양식과 같은 규칙). A는 영업팀 기준과 같은 기준층 <b>외곽선 면적</b>(외벽 바깥면, 발코니 포함)입니다. 도면이 없으면 전용면적 × 세대 외곽 계수 + 코어로 추정하고, 비정형 평면은 외접 박스 × 채움률로 잡습니다.</div>
+    <div>KDS 41 12 00:2022 5.1.4 특별풍하중 · 형상비 <span class="val">H / √A ≥ 3.0</span>이면 주골조설계용, 여기에 (5) 외장재 파손 주의를 더해 외장재설계용 대상을 판정합니다 (영업팀 검토 양식과 같은 규칙). A는 영업팀 기준과 같은 기준층 <b>외곽선 면적</b>(외벽 바깥면, 발코니 포함)입니다. 도면이 없으면 회사 실측 16건으로 만든 식(전용면적 합·호수)으로 추정하며, 오차는 약 ±5%입니다.</div>
     <div><b>높이 200m 이상은 별도 협의</b> 대상이며, 최종 대상동과 금액은 도면 확인 후 확정합니다.</div>
   </div>
 
@@ -169,7 +176,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
             <label for="fill">비정형 박스 채움률<input id="fill" type="number" step="0.01" min="0.3" max="1"><span class="tag-assume">1.0이면 KDS B×D 그대로</span></label>
       <label for="flH">층고 (층수→높이 참고용, m)<input id="flH" type="number" step="0.05" min="2.5" max="4"></label>
     </div>
-    <p class="note" style="margin-top:10px"><b>기준층 외곽선 면적 실측식</b> A = a × 전용면적 합 + b × 호수 + c. 회사 실측 5건(84×2, 59×3, 59×4, 74×4, 74·84×4, 모두 29층)에 맞춘 식으로 오차 ±1.5%입니다. 외곽선은 외벽 바깥면 기준이며 발코니·실외기실 등 벽체 안쪽 면적을 모두 포함합니다.<br>식의 기준 상태는 법정 최소 승강기·계단(승강기: 22층 이상이면서 3호 이상 2대, 그 외 1대 / 계단: 4호 이하 1, 5호 이상 2), 코어 1개, 설비실 있음, 판상형입니다. 이와 다르면 승강기 대당 ±7㎡, 계단실 개소당 ±20㎡, 코어 추가 +18㎡(+설비실), 설비실 없음 −10㎡, 탑상형 호당 +4㎡를 더합니다. 22층 미만·35층 이상, 100㎡ 이상 대형 평형은 아직 실측 검증 전입니다.</p>
+    <p class="note" style="margin-top:10px"><b>기준층 외곽선 면적 실측식</b> A = a × 전용면적 합 + b × 호수 + c. 회사 실측 4개 프로젝트 16건(인천 상인천초교, 안양 비산초, 광주 신가동, 대전 문화동8구역 · 59~109㎡, 2~5호)에 맞춘 식으로 평균 오차 2.5%, 최대 5.6%입니다. 설계사무소마다 발코니·코어 구성이 달라 간이 계산의 한계는 약 ±5%입니다. 외곽선은 외벽 바깥면 기준이며 발코니·실외기실 등 벽체 안쪽 면적을 모두 포함합니다.<br>식의 기준 상태는 법정 최소 승강기·계단(승강기: 22층 이상이면서 3호 이상 2대, 그 외 1대 / 계단: 4호 이하 1, 5호 이상 2), 코어 1개, 설비실 있음, 판상형입니다. 이와 다르면 승강기 대당 ±7㎡, 계단실 개소당 ±20㎡, 코어 추가 +18㎡(+설비실), 설비실 없음 −10㎡, 탑상형 호당 +4㎡를 더합니다. 형상·코어·설비 항목은 <b>도면에서 확인된 경우에만</b> 바꾸십시오. 모르면 기본값이 가장 정확합니다.</p>
     <p class="note" style="margin-top:10px">회색 숫자가 기본값입니다. 입력하면 바로 반영되고, 앱을 다시 열면 기본값으로 돌아갑니다.</p>
     <div class="tools" style="margin-top:8px"><button type="button" id="defBtn">기본값으로 되돌리기</button></div>
     <p class="note" style="margin-top:10px">추정 면적일 때 판정 구간: 3.3 이상 대상 · 3.0~3.3 대상(경계) · 2.7~3.0 비대상(경계) · 2.7 미만 비대상. 경계 구간은 견적 범위의 상한에만 포함됩니다. 면적을 직접 입력하면 3.0 단일 기준입니다. 견적 금액은 주골조설계용 대상 동수 기준이며, 외장재만 대상인 동은 별도 견적입니다.</p>
@@ -179,7 +186,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
     <button type="button" id="resetBtn">예시로 되돌리기</button>
     <button type="button" id="clearBtn">새 단지 (1개동)</button>
   </div>
-<p class="note" style="text-align:center;margin-top:8px">HYWTL 풍동실험 간이견적 · 버전 1.7.2 (2026-10-28) · 사내 전용</p>
+<p class="note" style="text-align:center;margin-top:8px">HYWTL 풍동실험 간이판정 · 버전 1.8.2 (2026-10-28) · 사내 전용</p>
   <p class="note" id="exampleNote">예시 데이터: A동 82m 84㎡×3호, B동 75m 84㎡×3호, C동 80m 59·59·84·84 4호.</p>
 </div>
 
@@ -233,8 +240,8 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
 <script>
 (function(){
   const KEY='hywtl-wind-estimate-v4';
-  const DEF_SET={p1:3000,p2:4500,p3:1500,fA:1.86,fB:38,fC:-55,sh:10,fill:0.75,flH:2.9};
-  // 기준층 외곽선 면적 실측식 (회사 실측 5건, 29층·84.1m): A = fA×Σ전용 + fB×호수 + fC  (오차 ±1.5%)
+  const DEF_SET={p1:3000,p2:4500,p3:1500,fA:1.74,fB:31,fC:-18,sh:10,fill:0.75,flH:2.9};
+  // 기준층 외곽선 면적 실측식 (회사 실측 4개 프로젝트 16건): A = fA×Σ전용 + fB×호수 + fC  (평균 오차 2.5%, 최대 5.6%)
   // 기준 상태: 법정 최소 승강기·계단, 코어 1개, 설비실 있음, 판상형. 이와 다르면 아래 증감을 더함.
   // 코어 간이 산정 (법정 최소 기준)
   // 계단: 건축법 시행령 34조② 층당 4세대 이하 공동주택은 직통계단 2개소 제외 → 4호 이하 1개소, 5호 이상 2개소 (부속실 포함 개소당 20㎡)
@@ -276,6 +283,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
     if(b.type==='tower') a+=4*b.units.length;     // 탑상형 홀 확대
     return a;
   }
+  const advOpen=b=>b.adv===true||(b.type&&b.type!=='flat')||b.cores===2||b.sh===false||b.ev>0||b.st>0;
   const regArea=b=>S.set.fA*b.units.reduce((s,u)=>s+u,0)+S.set.fB*b.units.length+S.set.fC;
   const boxArea=b=>(b.bw>0&&b.bd>0)?b.bw*b.bd*S.set.fill:0;
   function estArea(b){if(b.type==='irr') return boxArea(b); return regArea(b)+adjOf(b);}
@@ -327,6 +335,23 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
             ${[2,3,4,5,6].map(k=>`<button type="button" data-ho="${k}" aria-pressed="${k===n}">${k}호</button>`).join('')}
           </div>
         </div>
+        <div class="units" ${b.type==='irr'?'hidden':''}>
+          <div class="unit-h"><span></span><span class="lbl">전용면적</span><span></span></div>
+          ${b.units.map((u,j)=>`
+            <div class="unit">
+              <span class="lbl">${j+1}호</span>
+              <span class="h-input"><input id="u${i}_${j}" type="number" min="10" max="300" step="0.01" value="${u}" aria-label="${j+1}호 전용면적"><span class="lbl">㎡</span></span>
+              <span class="val" id="uv${i}_${j}"></span>
+            </div>`).join('')}
+          <div class="unit unit-sum">
+            <span class="lbl">합계</span>
+            <span class="lbl">기준층 외곽 (추정)</span>
+            <span class="val" id="sum${i}"></span>
+          </div>
+        </div>
+        <details class="adv" id="adv${i}" ${advOpen(b)?'open':''}>
+          <summary>도면 확인 시 · 형상·코어·설비 <span class="adv-st" id="advs${i}"></span></summary>
+          <div class="adv-in">
         <div class="row">
           <span class="lbl">주동 형상</span>
           <div class="seg" role="group" aria-label="주동 형상">
@@ -343,14 +368,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
           </div>
           <div class="unit unit-sum"><span class="lbl">면적</span><span class="lbl" id="bxl${i}"></span><span class="val" id="bxv${i}"></span></div>
         </div>
-        <div class="units" ${b.type==='irr'?'hidden':''}>
-          <div class="unit-h"><span></span><span class="lbl">전용면적</span><span></span></div>
-          ${b.units.map((u,j)=>`
-            <div class="unit">
-              <span class="lbl">${j+1}호</span>
-              <span class="h-input"><input id="u${i}_${j}" type="number" min="10" max="300" step="0.01" value="${u}" aria-label="${j+1}호 전용면적"><span class="lbl">㎡</span></span>
-              <span class="val" id="uv${i}_${j}"></span>
-            </div>`).join('')}
+            <div class="units" ${b.type==='irr'?'hidden':''}>
           <div class="unit">
             <span class="lbl">공용</span>
             <span class="lbl">코어·설비 구성 (비워두면 기준값)</span>
@@ -365,12 +383,9 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
             <label for="ev${i}">승강기<span class="h-input"><input id="ev${i}" type="number" min="1" max="8" step="1" value="${b.ev>0?b.ev:''}" aria-label="승강기 대수"><span class="lbl">대</span></span></label>
             <label for="st${i}">계단실<span class="h-input"><input id="st${i}" type="number" min="1" max="4" step="1" value="${b.st>0?b.st:''}" aria-label="계단실 개소"><span class="lbl">개소</span></span></label>
           </div>
-          <div class="unit unit-sum">
-            <span class="lbl">합계</span>
-            <span class="lbl">기준층 외곽 (실측식 + 증감)</span>
-            <span class="val" id="sum${i}"></span>
+            </div>
           </div>
-        </div>
+        </details>
       </div>
       <div class="row">
         <div class="row-top"><span class="lbl">도면 기준층 면적 (알면 입력 · 우선 적용)</span>
@@ -407,7 +422,8 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
     const b=S.b[i]; const c=calc(b);
     $(`ev${i}`).placeholder=String(evLegal(b)); $(`st${i}`).placeholder=String(stairLegal(b));
     $(`ev${i}`).classList.toggle('mod',b.ev>0); $(`st${i}`).classList.toggle('mod',b.st>0);
-    {const a=Math.round(adjOf(b)); $(`cv${i}`).textContent=a===0?'기준값':(a>0?`+${a}㎡`:`${a}㎡`);}
+    {const a=Math.round(adjOf(b)); $(`cv${i}`).textContent=a===0?'기준값':(a>0?`+${a}㎡`:`${a}㎡`);
+     const st=$(`advs${i}`); if(st) st.textContent=b.type==='irr'?'· 비정형 박스':(a===0?'· 기본값':`· 변경됨 ${a>0?'+':''}${a}㎡`);}
     if(b.type!=='irr') $(`sum${i}`).textContent=`${fmt(estArea(b))}㎡`;
     else {const ba=boxArea(b); $(`bxl${i}`).textContent=`가로×세로 × 채움률 ${S.set.fill}`; $(`bxv${i}`).textContent=ba>0?`${fmt(ba)}㎡`:'치수 입력';}
     $(`est${i}`).classList.toggle('off',c.direct);
@@ -448,6 +464,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
     $(`mh${i}`).addEventListener('click',()=>M.open(i,'height'));
     b.units.forEach((u,k)=>$(`u${i}_${k}`).addEventListener('input',e=>{const v=parseFloat(e.target.value); b.units[k]=v>0?v:0; ch();}));
     $(`sh${i}`).addEventListener('change',e=>{b.sh=e.target.checked; ch();});
+    $(`adv${i}`).addEventListener('toggle',e=>{b.adv=e.target.open; save();});
     el.querySelectorAll('[data-core]').forEach(btn=>btn.addEventListener('click',()=>{b.cores=+btn.dataset.core; touch(); save(); render();}));
     el.querySelectorAll('[data-ho]').forEach(btn=>btn.addEventListener('click',()=>{
       const k=+btn.dataset.ho; const last=b.units[b.units.length-1]||84;
