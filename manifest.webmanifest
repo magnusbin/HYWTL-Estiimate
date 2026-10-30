@@ -1,14 +1,14 @@
 {
   "name": "HYWTL 풍동실험 간이판정",
   "short_name": "HYWTL 판정",
-  "description": "현장 미팅용 풍동실험 대상동 간이 판정과 예비 견적 (사내 전용)",
+  "description": "현장 미팅용 풍동실험 대상동 간이 판정과 예비 금액 (사내 전용)",
   "lang": "ko",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#eef1f4",
-  "theme_color": "#1d5f8a",
+  "background_color": "#F2F2F7",
+  "theme_color": "#F2F2F7",
   "icons": [
     {
       "src": "icons/icon-192.png",
